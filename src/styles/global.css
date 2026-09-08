@@ -1,0 +1,184 @@
+@import "./variable.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+::selection {
+  background: var(--purple);
+  color: white;
+}
+
+.home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(124, 58, 237, 0.2),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(96, 165, 250, 0.18),
+      transparent 35%
+    ),
+    var(--bg-primary);
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--purple-deep);
+  filter: blur(160px);
+  opacity: 0.12;
+  top: -180px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.home-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 760px);
+  text-align: center;
+}
+
+.home-eyebrow {
+  margin-bottom: 1.5rem;
+  color: var(--sky);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.home h1 {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+}
+
+.home h1 span {
+  display: block;
+
+  background: linear-gradient(
+    135deg,
+    var(--sky),
+    var(--purple)
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.home-description {
+  width: min(100%, 560px);
+  margin: 2rem auto;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.wish-form {
+  width: min(100%, 520px);
+  margin: 2.5rem auto 0;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+.wish-form-field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.wish-form label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.wish-form input,
+.wish-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  outline: none;
+  background: var(--glass);
+  color: var(--text-primary);
+  backdrop-filter: blur(20px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wish-form input:focus,
+.wish-form textarea:focus {
+  border-color: rgba(135, 206, 250, 0.5);
+  box-shadow: 0 0 0 3px rgba(135, 206, 250, 0.08),
+  0 0 30px rgba(124, 58, 237, 0.1);
+}
+
+.wish-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.wish-form button {
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 1.5rem;
+  background: linear-gradient( 175deg, var(--sky), var(--purple)
+ );
+
+  color: #080a18;
+
+  font-weight: 700;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wish-form button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 35px rgba(135, 206, 250, 0.2),
+    0 10px 45px rgba(124, 58, 237, 0.2);
+}

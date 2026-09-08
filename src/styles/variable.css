@@ -1,0 +1,32 @@
+:root {
+  /* General background */
+  --bg-primary: #070a1a;
+  --bg-secondary: #0d1026;
+  --bg-tertiary: #111633;
+
+  /* Brand colours*/
+  --sky: #87cefa;
+  --blue: #60a5fa;
+  --purple: #a78bfa;
+  --purple-deep: #7c3aed;
+
+  /* Text colors*/
+  --text-primary: #f8fafc;
+  --text-secondary: #a5b4c8;
+  --text-muted: #64748b;
+
+  /* Glass */
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-hover: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.1);
+
+  /* Effects */
+  --shadow-blue: 0 0 50px rgba(135, 206, 250, 0.15);
+  --shadow-purple: 0 0 50px rgba(124, 58, 237, 0.2);
+
+  /* Layout */
+  --container: 1200px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+}
