@@ -45,6 +45,7 @@ img {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  isolation: isolate;
   background:
     radial-gradient(
       circle at 15% 20%,
@@ -72,52 +73,90 @@ img {
   right: -100px;
   pointer-events: none;
 }
-
 .home-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(100%, 760px);
   text-align: center;
 }
+.home-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+.glow-orb {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.22;
+  will-change: transform;
+  animation: orb-drift 12s ease-in-out infinite;
+}
+.glow-orb-purple {
+  top: -140px;
+  left: -100px;
+  background: rgba(124, 58, 237, 0.7);
+  animation-delay: -3s;
+}
+.glow-orb-blue {
+  right: -120px;
+  bottom: -100px;
 
+  background: rgba(96, 165, 250, 0.65);
+
+  animation-duration: 15s;
+}
+.glow-orb-center {
+  top: 35%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  background: rgba(167, 139, 250, 0.28);
+  opacity: 0.1;
+  transform: translate(-50%, -50%);
+  animation-duration: 18s;
+}
+.home-noise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
 .home-eyebrow {
   margin-bottom: 1.5rem;
   color: var(--sky);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-
 .home h1 {
   font-size: clamp(3.5rem, 9vw, 7rem);
   line-height: 0.92;
   letter-spacing: -0.07em;
+  text-wrap: balance;
 }
-
 .home h1 span {
   display: block;
-
-  background: linear-gradient(
-    135deg,
-    var(--sky),
-    var(--purple)
-  );
-
+  background: linear-gradient( 135deg, var(--sky), var(--purple) );
   -webkit-background-clip: text;
   background-clip: text;
-
   color: transparent;
 }
-
 .home-description {
   width: min(100%, 560px);
   margin: 2rem auto;
   color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.7;
+  text-wrap: balance;
 }
-
 .wish-form {
   width: min(100%, 520px);
   margin: 2.5rem auto 0;
@@ -125,17 +164,15 @@ img {
   gap: 1rem;
   text-align: left;
 }
-
 .wish-form-field {
   display: grid;
   gap: 0.5rem;
 }
-
 .wish-form label {
   color: var(--text-secondary);
   font-size: 0.85rem;
+  font-weight: 500;
 }
-
 .wish-form input,
 .wish-form textarea {
   width: 100%;
@@ -146,39 +183,160 @@ img {
   background: var(--glass);
   color: var(--text-primary);
   backdrop-filter: blur(20px);
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
-
+.wish-form input::placeholder,
+.wish-form textarea::placeholder {
+  color: var(--text-muted);
+}
 .wish-form input:focus,
 .wish-form textarea:focus {
-  border-color: rgba(135, 206, 250, 0.5);
-  box-shadow: 0 0 0 3px rgba(135, 206, 250, 0.08),
-  0 0 30px rgba(124, 58, 237, 0.1);
+  border-color: rgba(135, 206, 250, 0.55);
+  background: var(--glass-hover);
+  box-shadow: 0 0 0 3px rgba(135, 206, 250, 0.08), 0 0 30px rgba(124, 58, 237, 0.1);
 }
-
+.wish-form input:disabled,
+.wish-form textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
 .wish-form textarea {
   resize: vertical;
   min-height: 140px;
 }
+.wish-form-submit {
+  min-height: 52px;
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient( 135deg, var(--sky), var(--purple));
+  color: #080a18;
+  font-weight: 700;
+  transition: box-shadow 0.25s ease, opacity 0.25s ease;
+}
 
+.wish-form-submit:hover:not(:disabled) {
+  box-shadow:
+    0 10px 35px rgba(135, 206, 250, 0.2),
+    0 10px 45px rgba(124, 58, 237, 0.2);
+}
+
+.wish-form-submit:focus-visible,
+.wish-success-reset:focus-visible {
+  outline: 3px solid rgba(135, 206, 250, 0.4);
+  outline-offset: 4px;
+}
+
+.wish-form-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.wish-form-submit-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(8, 10, 24, 0.25);
+  border-top-color: #080a18;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.wish-success {
+  width: min(100%, 520px);
+  margin: 2.5rem auto 0;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.2),
+    var(--shadow-purple);
+}
+
+.wish-success-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient( 135deg, var(--sky), var(--purple));
+  color: #080a18;
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: 0 0 35px rgba(135, 206, 250, 0.18), 0 0 45px rgba(124, 58, 237, 0.18);
+}
+
+.wish-success h2 {
+  margin-bottom: 0.65rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.03em;
+}
+
+.wish-success p {
+  max-width: 380px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.wish-success-reset {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.25s ease,  background 0.25s ease;
+}
+
+.wish-success-reset:hover {
+  border-color: rgba(135, 206, 250, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
 .wish-form button {
   border: 0;
   border-radius: 999px;
   padding: 1rem 1.5rem;
-  background: linear-gradient( 175deg, var(--sky), var(--purple)
- );
-
+  background: linear-gradient( 175deg, var(--sky), var(--purple));
   color: #080a18;
-
   font-weight: 700;
-
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .wish-form button:hover {
   transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(135, 206, 250, 0.2), 0 10px 45px rgba(124, 58, 237, 0.2);
+}
 
-  box-shadow:
-    0 10px 35px rgba(135, 206, 250, 0.2),
-    0 10px 45px rgba(124, 58, 237, 0.2);
+@media (max-width: 640px) {
+  .home {
+    padding: 1.25rem;
+  }
+  .home h1 {
+    font-size: clamp(3.2rem, 16vw, 5rem);
+  }
+  .home-description {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .glow-orb {
+    width: 240px;
+    height: 240px;
+    filter: blur(80px);
+  }
+  .wish-form {
+    margin-top: 2rem;
+  }
+  .wish-success {
+    padding: 2rem 1.25rem;
+  }
 }
