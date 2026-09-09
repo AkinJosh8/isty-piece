@@ -1,11 +1,12 @@
 const birthdayData = {
-name: "Vee",
-birthdayMessage: 
-    "A beautiful new chapter deserves to be celebrated.",
-heroTagLine: 
-    "Today is about celebrating you, your journey, and all the beautiful moments ahead.",
-finalMessage:
-    "May this new chapter be filled with love, laughter, beautiful memories, and everything your heart hopes for.",
+    name: "Vee",
+    secretPasscode: "Chula",
+    birthdayMessage: 
+      "A beautiful new chapter deserves to be celebrated.",
+    heroTagLine: 
+      "Today is about celebrating you, your journey, and all the beautiful moments ahead.",
+    finalMessage:
+      "May this new chapter be filled with love, laughter, beautiful memories, and everything your heart hopes for.",
 
 timeline: [
     {

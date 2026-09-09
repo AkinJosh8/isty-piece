@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import WishSuccess from "./WishSuccess";
+import { supabase } from "../../lib/supabase";
 
 const fieldVariants = {
   hidden: {
@@ -20,7 +21,7 @@ const fieldVariants = {
 
 function WishForm() {
     const shouldReduceMotion = useReducedMotion();
-
+    const [ submitError, setSubmitError] = useState("")
     const [formData, setFormData] = useState ({ 
         name: "", message: "",
     })
@@ -30,7 +31,6 @@ function WishForm() {
 
     const handleChange = (event) => {
         const { name, value } = event.target
-
         setFormData((previous) => ({
             ...previous,
             [name]: value,
@@ -39,18 +39,30 @@ function WishForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const name = formData.name.trim()
+        const message = formData.message.trim()
 
-        if (!formData.name.trim() || !formData.message.trim()) {
+        if (!name || !message) {
             return;
         }
-
         setIsSubmitting(true)
+        setSubmitError("")
 
-        // Simulate API call for now. Supabase will replace this with a real API call in the future.
-        await new Promise((resolve) => {
-            setTimeout(resolve, 700)
+        const { error } = await supabase
+            .from("wishes")
+            .insert({
+            name,
+            message,
         })
-             
+
+        if (error) {
+            setSubmitError(
+                "Failed to submit wish. Please try again."
+            )
+            setIsSubmitting(false)
+            return
+        }
+
         setIsSubmitting(false)
         setIsSubmitted(true)
     }
@@ -112,6 +124,14 @@ function WishForm() {
                         />
                     </motion.div>
 
+                    {submitError && (
+                        <p
+                            className="wish-form-error"
+                            role="alert"
+                        >
+                            {submitError}
+                        </p>
+                    )}
                     <motion.button type="submit" 
                         className="wish-form-submit"
                         custom={2} 

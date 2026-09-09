@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import WishForm from "../components/public/WishForm";
 import GlowOrb from "../components/effects/GlowOrb";
 
-function Home() {
+function Home({ onSecretRoom }) {
   const shouldReduceMotion = useReducedMotion();
 
   const reveal = ( delay = 0) => ({
@@ -53,7 +53,17 @@ function Home() {
             love for you to be part of her story.
           </motion.p>
 
-          <WishForm />
+          <motion.div {...reveal(0.44)}>
+            <WishForm />
+          </motion.div>
+          <motion.button
+            type="button"
+            className="home-secret-link"
+            onClick={onSecretRoom}
+            {...reveal(0.56)}
+          >
+            For her eyes only <span>&#10132;</span>
+          </motion.button>
         </div>
       </section>
     </main>
