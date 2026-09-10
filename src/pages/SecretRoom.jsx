@@ -2,6 +2,7 @@ import { useState } from 'react';
 import birthdayData from '../data/birthdayData';
 import PasscodeGate from '../components/secret/PasscodeGate';
 import Opening from '../components/secret/Opening';
+import Hero from '../components/secret/Hero';
 
 function SecretRoom() {
   const [isUnlocked, setIsUnlocked] = useState(() => {
@@ -32,12 +33,8 @@ function SecretRoom() {
   }
 
   return (
-    <main className="secret-room-placeholder">
-      <h1>The secret room is open.</h1>
-      <p>
-        Hero, Memories, Story and the surprises
-        are coming next.
-      </p>
+    <main className="secret-room">
+      <Hero />
     </main>
   );
 }

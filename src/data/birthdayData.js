@@ -1,5 +1,5 @@
 const birthdayData = {
-    name: "Vee",
+    name: "Isty baby",
     secretPasscode: "Chula",
     birthdayMessage: 
       "A beautiful new chapter deserves to be celebrated.",
