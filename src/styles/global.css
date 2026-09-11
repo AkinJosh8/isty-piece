@@ -46,20 +46,33 @@ img {
   justify-content: center;
   padding: 2rem;
   isolation: isolate;
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(124, 58, 237, 0.2),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 85% 75%,
-      rgba(96, 165, 250, 0.18),
-      transparent 35%
-    ),
-    var(--bg-primary);
+  background: var(--bg-primary);
 }
-
+.home-background {
+  position: absolute;
+  inset: -5%;
+  z-index: -4;
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  opacity: 0.17;
+  will-change: transform, opacity;
+}
+.home-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: linear-gradient( 180deg,rgba(7, 10, 26, 0.68) 0%,rgba(7, 10, 26, 0.76) 45%,rgba(7, 10, 26, 0.96) 100%);
+}
+.home-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:radial-gradient( circle at 50% 35%,rgba(124, 58, 237, 0.18), transparent 38%),
+    radial-gradient( circle at 15% 65%, rgba(96, 165, 250, 0.1), transparent 30% );
+}
 .home::before {
   content: "";
   position: absolute;
@@ -78,6 +91,17 @@ img {
   z-index: 2;
   width: min(100%, 760px);
   text-align: center;
+}
+.home-wish-card {
+  width: min(100%, 620px);
+  margin: 2rem auto 0;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: rgba(7, 10, 26, 0.38);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35), 0 0 60px rgba(124, 58, 237, 0.08);
 }
 .home-ambient {
   position: absolute;
@@ -422,14 +446,12 @@ img {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-
 .passcode-gate h1,
 .opening h1 {
   font-size: clamp(2.5rem, 7vw, 4.5rem);
   line-height: 0.98;
   letter-spacing: -0.06em;
 }
-
 .passcode-gate h1 span,
 .opening h1 span {
   display: block;
@@ -442,26 +464,22 @@ img {
   background-clip: text;
   color: transparent;
 }
-
 .passcode-gate-description {
   max-width: 380px;
   margin: 1.5rem auto 0;
   color: var(--text-secondary);
   line-height: 1.7;
 }
-
 .passcode-gate-form {
   margin-top: 2rem;
   display: grid;
   gap: 0.7rem;
   text-align: left;
 }
-
 .passcode-gate-form label {
   color: var(--text-secondary);
   font-size: 0.85rem;
 }
-
 .passcode-gate-form input {
   width: 100%;
   border: 1px solid var(--border);
@@ -473,11 +491,8 @@ img {
   text-align: center;
   letter-spacing: 0.12em;
   backdrop-filter: blur(20px);
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
-
 .passcode-gate-form input:focus {
   border-color: rgba(135, 206, 250, 0.55);
   box-shadow: 0 0 0 3px rgba(135, 206, 250, 0.08), 0 0 30px rgba(124, 58, 237, 0.1);
@@ -529,9 +544,64 @@ img {
   font-size: 0.75rem;
 }
 /* opening styling */
+.opening {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background: var(--bg-primary);
+}
+.opening-background {
+  position: absolute;
+  inset: -3%;
+  z-index: -3;
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+.opening-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient( 180deg,rgba(7, 10, 26, 0.42) 0%,rgba(7, 10, 26, 0.55) 35%,rgba(7, 10, 26, 0.82) 100% );
+}
+.opening-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient( circle at 50% 45%,rgba(124, 58, 237, 0.18), transparent 38% ), 
+  radial-gradient( circle at 20% 20%,rgba(135, 206, 250, 0.1), transparent 30% );
+}
 .opening-content {
-  width: min(100%, 760px);
+  position: relative;
+  z-index: 2;
+  width: min(100% - 3rem, 760px);
+  padding: 3rem 0;
   text-align: center;
+}
+.opening-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--sky);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.opening-content h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+.opening-content h1 span {
+  display: block;
+  background: linear-gradient( 135deg, var(--sky), var(--purple) );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .opening-description {
   width: min(100%, 500px);
@@ -541,21 +611,25 @@ img {
 }
 .opening-button {
   margin-top: 2rem;
-  padding-inline: 2rem;
+  padding: 0.85rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
-.secret-room-placeholder {
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 1rem;
-  padding: 2rem;
-  background: var(--bg-primary);
-  text-align: center;
+.opening-button:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(135, 206, 250, 0.35);
 }
-.secret-room-placeholder p {
-  color: var(--text-secondary);
+.opening-button span {
+  margin-left: 0.35rem;
 }
+
 
 /* home and secret room styling */
 .home-secret-link {
@@ -591,11 +665,35 @@ img {
   overflow: hidden;
   display: grid;
   place-items: center;
-  padding: 6rem 1.5rem;
   isolation: isolate;
-  background: radial-gradient( circle at 15% 25%,rgba(124, 58, 237, 0.18), transparent 32% ),
-  radial-gradient( circle at 85% 70%,rgba(96, 165, 250, 0.16), transparent 32% ),
-  var(--bg-primary);
+  background: var(--bg-primary);
+}
+.secret-hero-background {
+  position: absolute;
+  inset: -8%;
+  z-index: -4;
+  background-size: cover;
+  background-position: center 70%;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  transform: scale(1.08);
+  opacity: 0.22;
+  will-change: transform, opacity;
+}
+.secret-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: linear-gradient( 180deg,rgba(7, 10, 26, 0.86) 0%,rgba(7, 10, 26, 0.72) 45%, rgba(7, 10, 26, 0.95) 100% );
+}
+.secret-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: radial-gradient( circle at 50% 42%,rgba(124, 58, 237, 0.18), transparent 36% ),
+  radial-gradient( circle at 20% 70%,rgba(96, 165, 250, 0.08), transparent 30% );
 }
 .secret-hero-ambient {
   position: absolute;
@@ -607,89 +705,267 @@ img {
 .secret-hero-content {
   position: relative;
   z-index: 2;
-  width: min(100%, 900px);
+  width: min(100% - 3rem, 900px);
+  padding: 4rem 0;
   text-align: center;
 }
 .secret-hero-eyebrow {
   margin-bottom: 1.5rem;
   color: var(--sky);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
-.secret-hero h1 {
-  font-size: clamp(4rem, 11vw, 8.5rem);
-  line-height: 0.88;
+.secret-hero-content h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 1.2;
   letter-spacing: -0.075em;
-  text-wrap: balance;
 }
-.secret-hero h1 span {
+.secret-hero-content h1 span {
   display: block;
-  background: linear-gradient( 135deg, var(--sky) 0%, var(--purple) 55%, #c4b5fd 100% );
+  background: linear-gradient( 135deg, var(--sky), var(--purple), #c4b5fd 100% );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .secret-hero-message {
   width: min(100%, 560px);
-  margin: 2.25rem auto 0;
+  margin: 2rem auto 0;
   color: var(--text-secondary);
-  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-size: 1rem;
   line-height: 1.8;
-  text-wrap: balance;
 }
 .secret-hero-scroll {
-  margin-top: 5rem;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.65rem;
   color: var(--text-muted);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .secret-hero-arrow {
-  color: var(--sky);
+  color: var(--text-secondary);
   font-size: 1.2rem;
-  animation: float 2.5s ease-in-out infinite;
 }
 .secret-hero-particles {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  color: rgba(255, 255, 255, 0.35);
+  z-index: 1;
 }
 .secret-hero-particles span {
   position: absolute;
   font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
   animation: float 4s ease-in-out infinite;
 }
 .secret-hero-particles span:nth-child(1) {
-  top: 18%;
-  left: 18%;
+  top: 22%;
+  left: 17%;
+  opacity: 0.7;
 }
 .secret-hero-particles span:nth-child(2) {
-  top: 32%;
-  right: 15%;
+  top: 34%;
+  right: 20%;
+  opacity: 0.7;
   animation-delay: -1s;
 }
 .secret-hero-particles span:nth-child(3) {
-  bottom: 25%;
-  left: 12%;
+  bottom: 26%;
+  left: 24%;
+  opacity: 0.7;
   animation-delay: -2s;
 }
 .secret-hero-particles span:nth-child(4) {
-  bottom: 18%;
-  right: 20%;
+  bottom: 34%;
+  right: 16%;
+  opacity: 0.7;
   animation-delay: -3s;
 }
 .secret-hero-particles span:nth-child(5) {
-  top: 15%;
-  right: 38%;
+  top: 18%;
+  right: 35%;
+  opacity: 0.7;
   animation-delay: -1.5s;
+}
+.secret-room-placeholder {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--bg-primary);
+  text-align: center;
+}
+.secret-room-placeholder p {
+  color: var(--text-secondary);
+}
+/* memories page styling */
+
+.memories {
+  position: relative;
+  min-height: 100svh;
+  padding: 8rem 1.5rem;
+  overflow: hidden;
+  background: radial-gradient( circle at 50% 45%,rgba(124, 58, 237, 0.1), transparent 38% ), var(--bg-primary);
+}
+.memories-heading {
+  width: min(100%, 700px);
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+.memories-eyebrow {
+  margin-bottom: 1rem;
+  color: var(--sky);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.memories-heading h2 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+.memories-heading h2 span {
+  display: block;
+  background: linear-gradient( 135deg, var(--sky), var(--purple) );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.memories-intro {
+  width: min(100%, 520px);
+  margin: 1.5rem auto 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.memories-carousel {
+  width: min(100%, 680px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.memory-card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  min-height: 600px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--bg-secondary);
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.35), var(--shadow-purple);
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+.memory-card:active {
+  cursor: grabbing;
+}
+.memory-card-image {
+  position: absolute;
+  inset: 0;
+}
+.memory-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+.memory-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient( to top,rgba(7, 10, 26, 0.98) 0%,rgba(7, 10, 26, 0.7) 35%,rgba(7, 10, 26, 0.05) 75%);
+}
+.memory-card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+}
+.memory-card-number {
+  margin-bottom: 1rem;
+  color: var(--sky);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+.memory-card-number span {
+  color: var(--text-muted);
+}
+.memory-card-content h3 {
+  max-width: 500px;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.memory-card-content > p:last-child {
+  max-width: 450px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+/* controls section*/
+.memories-controls {
+  margin: 1.75rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.memories-arrow {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.memories-arrow:hover {
+  border-color: rgba(135, 206, 250, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+.memories-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.memories-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.memories-dot-active {
+  width: 24px;
+  border-radius: 999px;
+  background: linear-gradient( 90deg, var(--sky), var(--purple) );
+}
+.memories-swipe-hint {
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 640px) {
@@ -698,6 +974,16 @@ img {
   }
   .home h1 {
     font-size: clamp(3.2rem, 16vw, 5rem);
+  }
+  .home-background {
+    inset: -5%;
+    background-position: center 70%;
+    filter: blur(2px);
+    opacity: 0.17;
+  }
+  .home-wish-card {
+    padding: 1.25rem;
+    border-radius: 24px;
   }
   .home-description {
     margin-top: 1.5rem;
@@ -723,13 +1009,70 @@ img {
     height: 260px;
     filter: blur(80px);
   }
-  .secret-hero {
-    padding-inline: 1.25rem;
+  .opening-background {
+    background-position: center 50%;
   }
-  .secret-hero h1 {
-    font-size: clamp(3.5rem, 17vw, 5.5rem);
+  .opening-content {
+    width: min(100% - 2.5rem, 760px);
+  }
+  .opening-content h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+  .opening-description {
+    font-size: 0.9rem;
+  }
+  .secret-hero {
+    min-height: 100svh;
+  }
+  .secret-hero-background {
+    inset: -12%;
+    background-position: center 50%;
+    filter: blur(5px);
+    opacity: 0.22;
+  }
+  .secret-hero-content {
+    width: min(100% - 2.5rem, 900px);
+    padding: 3rem 0;
+  }
+  .secret-hero-content h1 {
+    font-size: clamp( 3.4rem, 15vw, 5rem );
+  }
+  .secret-hero-message {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .secret-hero-scroll {
+    margin-top: 3rem;
+  }
+  .secret-hero-particles span:nth-child(1) {
+    left: 8%;
+  }
+  .secret-hero-particles span:nth-child(2) {
+    right: 8%;
+  }
+  .secret-hero-particles span:nth-child(3) {
+    left: 12%;
+  }
+  .secret-hero-particles span:nth-child(4) {
+    right: 10%;
   }
   .secret-hero-scroll {
     margin-top: 3.5rem;
+  }
+  .memories {
+    padding: 6rem 1.25rem;
+  }
+  .memories-heading {
+    margin-bottom: 3rem;
+  }
+  .memory-card {
+    min-height: 520px;
+    border-radius: 24px;
+  }
+  .memory-card-content {
+    padding: 1.5rem;
+  }
+  .memories-swipe-hint {
+    font-size: 0.62rem;
   }
 }

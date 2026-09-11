@@ -1,23 +1,32 @@
 import { motion, useReducedMotion } from "framer-motion";
-
 import birthdayData from "../../data/birthdayData";
 import GlowOrb from "../effects/GlowOrb";
+import openingImage from "../../assets/images/opening-1.jpg"
 
 function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
     return (
         <section className="secret-hero">
+            <motion.div className="secret-hero-background"
+                style={{ backgroundImage: `url(${openingImage})`, }}
+                initial={
+                shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 1.05 }}
+                whileInView={ shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ opacity: { duration: 1.2, }, scale: { duration: 2, ease: "easeOut", },
+                }}
+                aria-hidden="true" 
+            />
+            <div className="secret-hero-overlay" aria-hidden="true" />
             <div className="secret-hero-ambient"
-                aria-hidden="true"
-                >
+                aria-hidden="true" >
                 <GlowOrb className="glow-orb-purple" />
                 <GlowOrb className="glow-orb-blue" />
                 <GlowOrb className="glow-orb-center" />
             </div>
 
-            <div className="secret-hero-particles" aria-hidden="true"
-            >   
+            <div className="secret-hero-particles" aria-hidden="true" >   
                 <span>&#x2726;</span>
                 <span>&#x2726;</span>
                 <span>&#x2726;</span>
@@ -27,19 +36,11 @@ function Hero() {
 
             <motion.div
                 className="secret-hero-content"
-                initial={
-                    shouldReduceMotion
-                        ? { opacity: 0 }
-                        : { opacity: 0, y: 30 }
-                }   
+                initial={ shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 } }   
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 1,
-                        ease: "easeOut",
-                    }}
-                    >
-                <motion.p
-                    className="secret-hero-eyebrow"
+                    transition={{ duration: 1, ease: "easeOut", }}
+                >
+                <motion.p className="secret-hero-eyebrow"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.7 }}
@@ -48,30 +49,19 @@ function Hero() {
                 </motion.p>
 
                 <motion.h1
-                    initial={
-                    shouldReduceMotion
-                        ? { opacity: 0 }
-                        : { opacity: 0, y: 25 }
-                    }
+                    initial={ shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 25 } }
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                        delay: 0.4,
-                        duration: 0.9,
-                    }}
+                        transition={{ delay: 0.4, duration: 0.9, }}
                     >
-                    Happy Birthday,
-                    <span>{birthdayData.name}.</span>
+                    Happy Birthday, <span>{birthdayData.name}.</span>
                 </motion.h1>
 
                 <motion.p
                     className="secret-hero-message"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{
-                        delay: 0.8,
-                        duration: 0.8,
-                    }}
-                >
+                    transition={{ delay: 0.8, duration: 0.8, }}
+                    >
                     {birthdayData.heroTagline}
                 </motion.p>
 
@@ -79,13 +69,14 @@ function Hero() {
                     className="secret-hero-scroll"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{
-                        delay: 1.4,
-                         duration: 0.8,
-                    }}
+                    transition={{ delay: 1.4, duration: 0.8, }}
                     >
-                        <span>Scroll to explore</span>
-                        <span className="secret-hero-arrow">&#x2193;</span>
+                    <span>Scroll to explore</span>
+                    <motion.span className="secret-hero-arrow"
+                        animate={ shouldReduceMotion ? undefined : { y: [0, 6, 0] }}
+                        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", }}
+                    > &#11015;
+                    </motion.span>
                 </motion.div>
             </motion.div>
         </section>

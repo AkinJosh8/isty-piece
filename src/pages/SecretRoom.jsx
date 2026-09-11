@@ -3,6 +3,8 @@ import birthdayData from '../data/birthdayData';
 import PasscodeGate from '../components/secret/PasscodeGate';
 import Opening from '../components/secret/Opening';
 import Hero from '../components/secret/Hero';
+import Memories from '../components/secret/Memories';
+
 
 function SecretRoom() {
   const [isUnlocked, setIsUnlocked] = useState(() => {
@@ -35,6 +37,7 @@ function SecretRoom() {
   return (
     <main className="secret-room">
       <Hero />
+      <Memories />
     </main>
   );
 }

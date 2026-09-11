@@ -1,31 +1,43 @@
 import { motion, useReducedMotion } from "framer-motion";
-
 import WishForm from "../components/public/WishForm";
 import GlowOrb from "../components/effects/GlowOrb";
+import Memories from "../components/secret/Memories";
+import openingImage from "../assets/images/opening-1.jpg";
 
 function Home({ onSecretRoom }) {
   const shouldReduceMotion = useReducedMotion();
 
-  const reveal = ( delay = 0) => ({
+  const reveal = ( delay = 0) => {
     if (shouldReduceMotion) {
       return {
-        initial: { opacity: 0},
-        animate: { opacity: 1},
-        animation: { duration: 0.01},
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { duration: 0.01 },
       }
-    },
-
-    return: {
-      initial: { opacity: 0, y: 24},
-      animate: { opacity: 1, y: 0},
-      transition: { duration: 0.7, delay, ease: "easeOut"},
     }
-  })
+      return {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.7, delay,ease: "easeOut",
+      },
+    };
+  }
 
 
   return (
     <main>
       <section className="home">
+        <motion.div
+          className="home-background"
+          style={{ backgroundImage: `url(${openingImage})`, }}
+          initial={ shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 1.02 }}
+          animate={ shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1.06 }}
+          transition={{ opacity: { duration: 0.8, }, scale: {duration: 16, ease: "easeOut", }, }}
+          aria-hidden="true"
+        />
+
+        <div className="home-overlay" aria-hidden="true" />
+        <div className="home-glow" aria-hidden="true" />
 
         <div className="home-ambient">
           <GlowOrb className="glow-orb-purple" />
@@ -53,9 +65,10 @@ function Home({ onSecretRoom }) {
             love for you to be part of her story.
           </motion.p>
 
-          <motion.div {...reveal(0.44)}>
+          <motion.div className="home-wish-card" {...reveal(0.44)}>
             <WishForm />
           </motion.div>
+
           <motion.button
             type="button"
             className="home-secret-link"
@@ -66,6 +79,7 @@ function Home({ onSecretRoom }) {
           </motion.button>
         </div>
       </section>
+      <Memories />
     </main>
   );
 }
