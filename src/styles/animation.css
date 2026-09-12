@@ -52,6 +52,11 @@
     transform: rotate(360deg);
   }
 }
+@keyframes guest-wishes-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {

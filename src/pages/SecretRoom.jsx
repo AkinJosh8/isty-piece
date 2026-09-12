@@ -4,6 +4,8 @@ import PasscodeGate from '../components/secret/PasscodeGate';
 import Opening from '../components/secret/Opening';
 import Hero from '../components/secret/Hero';
 import Memories from '../components/secret/Memories';
+import Surprise from '../components/secret/Surprise';
+import GuestWishes from '../components/secret/GuestWishes';
 
 
 function SecretRoom() {
@@ -38,6 +40,8 @@ function SecretRoom() {
     <main className="secret-room">
       <Hero />
       <Memories />
+      <Surprise />
+      <GuestWishes />
     </main>
   );
 }

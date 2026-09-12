@@ -23,7 +23,6 @@ function Home({ onSecretRoom }) {
     };
   }
 
-
   return (
     <main>
       <section className="home">
@@ -50,7 +49,7 @@ function Home({ onSecretRoom }) {
         <div className="home-content">
           <motion.p className="home-eyebrow" 
           {...reveal(0.1)} >
-            A little something special
+            Isty is a sweet girl, she deserves all love! 
           </motion.p>
           
           <motion.h1 
@@ -61,8 +60,7 @@ function Home({ onSecretRoom }) {
 
           <motion.p className="home-description"
           {...reveal(0.3)} >
-            She's celebrating another beautiful year, and we'd
-            love for you to be part of her story.
+            Another beautiful year  to celebrate, be part of the celebration by sending your wishes!
           </motion.p>
 
           <motion.div className="home-wish-card" {...reveal(0.44)}>
