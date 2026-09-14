@@ -6,6 +6,7 @@ import Hero from '../components/secret/Hero';
 import Memories from '../components/secret/Memories';
 import Surprise from '../components/secret/Surprise';
 import GuestWishes from '../components/secret/GuestWishes';
+import Footer from '../components/ui/Footer';
 
 
 function SecretRoom() {
@@ -42,8 +43,11 @@ function SecretRoom() {
       <Memories />
       <Surprise />
       <GuestWishes />
+      <Footer />
     </main>
   );
+  
 }
+
 
 export default SecretRoom;

@@ -38,7 +38,7 @@ function GuestWishes() {
                 <div className="guest-wishes-orb guest-wishes-orb-purple"></div>
                 <div className="guest-wishes-orb guest-wishes-orb-blue"></div>
             </div>
-            <div className="guest-wishes-conatainer">
+            <div className="guest-wishes-container">
                 <motion.div className="guest-wishes-heading"
                     initial={ shouldReduceMotion ? {opacity: 0 } : {opacity:0, y:25 }}
                     whileInView={{ opacity:1, y: 0 }}
@@ -89,7 +89,7 @@ function GuestWishes() {
                                 </div>
 
                                 <p className="guest-wish-message">{wish.message}</p>
-                                <div className="guest-wish-author" aria-hidden="true">
+                                <div className="guest-wish-author">
                                     <span>{wish.name.charAt(0).toUpperCase()}</span>
                                     <div>
                                         <strong>{wish.name}</strong>

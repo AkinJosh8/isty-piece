@@ -1,19 +1,19 @@
-import { useState } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import SecretRoom from "./pages/SecretRoom"
+import Admin from "./pages/Admin"
+
 
 
 function App() {
-  const [view, setView] = useState("home");
-
-  if (view === "secret") {
-    return <SecretRoom />;
-  }
-
   return (
-    <Home
-      onSecretRoom={() => setView("secret")}
-    />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/secret" element={<SecretRoom />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

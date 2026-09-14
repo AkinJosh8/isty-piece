@@ -3,9 +3,12 @@ import WishForm from "../components/public/WishForm";
 import GlowOrb from "../components/effects/GlowOrb";
 import Memories from "../components/secret/Memories";
 import openingImage from "../assets/images/opening-1.jpg";
+import Footer from "../components/ui/Footer";
+import { useNavigate } from "react-router-dom";
 
-function Home({ onSecretRoom }) {
+function Home() {
   const shouldReduceMotion = useReducedMotion();
+  const navigate = useNavigate();
 
   const reveal = ( delay = 0) => {
     if (shouldReduceMotion) {
@@ -70,15 +73,18 @@ function Home({ onSecretRoom }) {
           <motion.button
             type="button"
             className="home-secret-link"
-            onClick={onSecretRoom}
+            onClick={() => navigate("/secret")}
             {...reveal(0.56)}
           >
             For her eyes only <span>&#10132;</span>
           </motion.button>
         </div>
       </section>
+      
       <Memories />
+      <Footer />
     </main>
+    
   );
 }
 

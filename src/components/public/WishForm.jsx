@@ -56,6 +56,7 @@ function WishForm() {
         })
 
         if (error) {
+            console.error("Failed to submit wish:", error);
             setSubmitError(
                 "Failed to submit wish. Please try again."
             )
