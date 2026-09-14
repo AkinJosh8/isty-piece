@@ -136,9 +136,7 @@ textarea:focus-visible {
 .glow-orb-blue {
   right: -120px;
   bottom: -100px;
-
   background: rgba(96, 165, 250, 0.65);
-
   animation-duration: 15s;
 }
 .glow-orb-center {
@@ -213,7 +211,8 @@ textarea:focus-visible {
   outline: none;
   background: var(--glass);
   color: var(--text-primary);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 .wish-form input::placeholder,
@@ -249,24 +248,20 @@ textarea:focus-visible {
   font-weight: 700;
   transition: box-shadow 0.25s ease, opacity 0.25s ease;
 }
-
 .wish-form-submit:hover:not(:disabled) {
   box-shadow:
     0 10px 35px rgba(135, 206, 250, 0.2),
     0 10px 45px rgba(124, 58, 237, 0.2);
 }
-
 .wish-form-submit:focus-visible,
 .wish-success-reset:focus-visible {
   outline: 3px solid rgba(135, 206, 250, 0.4);
   outline-offset: 4px;
 }
-
 .wish-form-submit:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
-
 .wish-form-submit-spinner {
   width: 16px;
   height: 16px;
@@ -287,9 +282,7 @@ textarea:focus-visible {
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.045);
   backdrop-filter: blur(24px);
-  box-shadow:
-    0 20px 70px rgba(0, 0, 0, 0.2),
-    var(--shadow-purple);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2), var(--shadow-purple);
 }
 
 .wish-success-icon {
@@ -980,6 +973,7 @@ textarea:focus-visible {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
 /* surprise section styling */
 .surprise {
   position: relative;
@@ -1034,14 +1028,12 @@ textarea:focus-visible {
   line-height: 0.9;
   letter-spacing: -0.075em;
 }
-
 .surprise-intro h2 span {
   display: block;
   margin-top: 1rem;
   color: var(--purple);
   font-size: 1rem;
 }
-
 .surprise-open-button {
   margin-top: 3rem;
   padding: 1rem 1.8rem;
@@ -1171,13 +1163,11 @@ textarea:focus-visible {
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
 }
-
 .surprise-photo-heading span {
   color: var(--purple);
   font-size: 0.95rem;
   opacity: 0.75;
 }
-
 .surprise-photo-heading p {
   margin: 0;
   color: var(--text-secondary);
@@ -1186,7 +1176,6 @@ textarea:focus-visible {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-
 .surprise-photo-frame {
   position: relative;
   width: min(100%, 720px);
@@ -1200,7 +1189,6 @@ textarea:focus-visible {
     0 0 50px rgba(124, 58, 237, 0.1);
   cursor: default;
 }
-
 .surprise-photo-frame img {
   display: block;
   width: 100%;
@@ -1208,7 +1196,6 @@ textarea:focus-visible {
   max-height: 850px;
   object-fit: cover;
 }
-
 .surprise-photo-overlay {
   position: absolute;
   inset: 0;
@@ -1221,22 +1208,13 @@ textarea:focus-visible {
       rgba(7, 10, 26, 0.42) 100%
     );
 }
-
 .surprise-photo-glow {
   position: absolute;
   inset: -20%;
   pointer-events: none;
-  background:
-    radial-gradient(
-      circle at 30% 50%,
-      rgba(96, 165, 250, 0.08),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 70% 50%,
-      rgba(124, 58, 237, 0.1),
-      transparent 35%
-    );
+  background: radial-gradient(circle at 30% 50%,rgba(96, 165, 250, 0.08),
+  transparent 35%),
+  radial-gradient( circle at 70% 50%,rgba(124, 58, 237, 0.1),transparent 35%);
   mix-blend-mode: screen;
 }
 /* guest page styling */
@@ -1272,7 +1250,6 @@ textarea:focus-visible {
   left: -180px;
   background: var(--blue);
 }
-
 .guest-wishes-container {
   width: min(100% - 3rem, var(--container));
   margin: 0 auto;
@@ -1297,16 +1274,11 @@ textarea:focus-visible {
   letter-spacing: -0.06em;
 }
 .guest-wishes-heading h2 span {
-  background: linear-gradient(
-    135deg,
-    var(--sky),
-    var(--purple)
-  );
+  background: linear-gradient( 135deg, var(--sky), var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
 .guest-wishes-intro {
   width: min(100%, 560px);
   margin: 1.75rem auto 0;
@@ -1333,7 +1305,6 @@ textarea:focus-visible {
   border-radius: 50%;
   animation: guest-wishes-spin 0.8s linear infinite;
 }
-
 .guest-wishes-empty {
   width: min(100%, 500px);
   margin: 0 auto;
@@ -1345,20 +1316,17 @@ textarea:focus-visible {
   -webkit-backdrop-filter: blur(18px);
   text-align: center;
 }
-
 .guest-wishes-empty > span {
   display: block;
   margin-bottom: 1rem;
   color: var(--purple);
   font-size: 1.5rem;
 }
-
 .guest-wishes-empty p {
   margin: 0;
   color: var(--text-primary);
   font-weight: 600;
 }
-
 .guest-wishes-empty small {
   display: block;
   margin-top: 0.5rem;
@@ -1384,14 +1352,11 @@ textarea:focus-visible {
   border-radius: 22px;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  box-shadow:
-    0 20px 55px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(124, 58, 237, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(124, 58, 237, 0.03),
+  inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transform: translateY(0) scale(1);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease,
-    box-shadow 0.4s ease,
-    background 0.4s ease;
+  box-shadow 0.4s ease, background 0.4s ease;
 }
 .guest-wish-card::before {
   content: "";
@@ -1414,34 +1379,19 @@ textarea:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      120deg,
-      transparent 0%,
-      transparent 42%,
-      rgba(255, 255, 255, 0.035) 50%,
-      transparent 58%,
-      transparent 100%
-    );
+  background:linear-gradient( 120deg, transparent 0%, transparent 42%,
+  rgba(255, 255, 255, 0.035) 50%, transparent 58%, transparent 100);
   transform: translateX(-100%);
   pointer-events: none;
   z-index: -1;
   transition: transform 0.8s ease;
 }
 .guest-wish-card:hover {
-  transform: translateY(-5px);
-  background:
-    linear-gradient(
-      145deg,
-      rgba(34, 39, 86, 0.98),
-      rgba(15, 21, 56, 0.98)
-    );
+  transform: translateY(-7px) scale(1.025);
+  background: linear-gradient(145deg,rgba(34, 39, 86, 0.98),rgba(15, 21, 56, 0.98));
   border-color: rgba(135, 206, 250, 0.32);
-  box-shadow:
-    0 28px 70px rgba(0, 0, 0, 0.35),
-    0 0 35px rgba(124, 58, 237, 0.12),
-    0 0 70px rgba(96, 165, 250, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35), 0 0 35px rgba(124, 58, 237, 0.12),
+  0 0 70px rgba(96, 165, 250, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .guest-wish-card:hover::before {
   opacity: 0.9;
@@ -1461,18 +1411,12 @@ textarea:focus-visible {
   font-size: 4rem;
   line-height: 0.7;
   opacity: 0.6;
-  transition:
-    color 0.35s ease,
-    opacity 0.35s ease,
-    transform 0.35s ease;
+  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
 }
 .guest-wish-star {
   color: rgba(135, 206, 250, 0.45);
   font-size: 0.75rem;
-
-  transition:
-    color 0.35s ease,
-    transform 0.35s ease;
+  transition: color 0.35s ease, transform 0.35s ease;
 }
 .guest-wish-card:hover .guest-wish-mark {
   color: var(--sky);
@@ -1489,9 +1433,8 @@ textarea:focus-visible {
   font-size: 1.15rem;
   line-height: 1.7;
   letter-spacing: -0.01em;
-  transition:
-    color 0.35s ease,
-    transform 0.35s ease;
+  white-space: pre-line;
+  transition: color 0.35s ease, transform 0.35s ease;
 }
 .guest-wish-card:hover .guest-wish-message {
   color: var(--text-primary);
@@ -1513,19 +1456,11 @@ textarea:focus-visible {
   place-items: center;
   border: 1px solid rgba(135, 206, 250, 0.18);
   border-radius: 50%;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(135, 206, 250, 0.15),
-      rgba(167, 139, 250, 0.2)
-    );
+  background: linear-gradient( 135deg,rgba(135, 206, 250, 0.15),rgba(167, 139, 250, 0.2));
   color: var(--text-primary);
   font-size: 0.8rem;
   font-weight: 700;
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 .guest-wish-card:hover .guest-wish-avatar {
   transform: scale(1.08);
@@ -1533,7 +1468,6 @@ textarea:focus-visible {
   box-shadow:
     0 0 20px rgba(96, 165, 250, 0.12);
 }
-
 .guest-wish-author div {
   display: flex;
   flex-direction: column;
@@ -1549,6 +1483,7 @@ textarea:focus-visible {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+
 /* Admin styling */
 .admin-gate {
   position: relative;
@@ -1558,20 +1493,9 @@ textarea:focus-visible {
   place-items: center;
   overflow: hidden;
   isolation: isolate;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(124, 58, 237, 0.16),
-      transparent 34%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(96, 165, 250, 0.12),
-      transparent 34%
-    ),
-    var(--bg-primary);
+  background: radial-gradient( circle at 20% 20%,rgba(124, 58, 237, 0.16), transparent 34%),
+  radial-gradient(circle at 80% 80%,rgba(96, 165, 250, 0.12),transparent 34%), var(--bg-primary);
 }
-
 .admin-gate::before,
 .admin-dashboard::before {
   content: "";
@@ -1586,7 +1510,6 @@ textarea:focus-visible {
   right: -100px;
   pointer-events: none;
 }
-
 .admin-gate-card {
   position: relative;
   width: min(100%, 480px);
@@ -1596,12 +1519,9 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.045);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.35),
-    var(--shadow-purple);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35), var(--shadow-purple);
   text-align: center;
 }
-
 .admin-gate-eyebrow,
 .admin-dashboard-eyebrow,
 .admin-section-eyebrow {
@@ -1612,47 +1532,37 @@ textarea:focus-visible {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-
 .admin-gate-card h1,
 .admin-dashboard-header h1 {
   font-size: clamp(2.8rem, 7vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.065em;
 }
-
 .admin-gate-card h1 span,
 .admin-dashboard-header h1 span {
   display: block;
-  background: linear-gradient(
-    135deg,
-    var(--sky),
-    var(--purple)
-  );
+  background: linear-gradient( 135deg, var(--sky), var(--purple));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
 .admin-gate-description {
   max-width: 380px;
   margin: 1.5rem auto 0;
   color: var(--text-secondary);
   line-height: 1.7;
 }
-
 .admin-gate-form {
   margin-top: 2rem;
   display: grid;
   gap: 0.7rem;
   text-align: left;
 }
-
 .admin-gate-form label {
   color: var(--text-secondary);
   font-size: 0.82rem;
   font-weight: 500;
 }
-
 .admin-gate-form input {
   width: 100%;
   border: 1px solid var(--border);
@@ -1662,16 +1572,11 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.045);
   color: var(--text-primary);
   backdrop-filter: blur(20px);
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
-
 .admin-gate-form input::placeholder {
   color: var(--text-muted);
 }
-
 .admin-gate-form input:focus {
   border-color: rgba(135, 206, 250, 0.55);
   background: rgba(255, 255, 255, 0.06);
@@ -1679,51 +1584,37 @@ textarea:focus-visible {
     0 0 0 3px rgba(135, 206, 250, 0.08),
     0 0 30px rgba(124, 58, 237, 0.1);
 }
-
 .admin-gate-form input:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
-
 .admin-gate-error {
   margin-top: 0.35rem;
   color: #fca5a5;
   font-size: 0.82rem;
   text-align: center;
 }
-
 .admin-gate-button {
   min-height: 52px;
   margin-top: 0.5rem;
   border: 0;
   border-radius: 999px;
   padding: 1rem 1.5rem;
-  background: linear-gradient(
-    135deg,
-    var(--sky),
-    var(--purple)
-  );
+  background: linear-gradient( 135deg, var(--sky), var(--purple));
   color: #080a18;
   font-weight: 700;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    opacity 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
 }
-
 .admin-gate-button:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow:
     0 10px 35px rgba(135, 206, 250, 0.2),
     0 10px 45px rgba(124, 58, 237, 0.2);
 }
-
 .admin-gate-button:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
-
-
 .admin-loading-spinner {
   width: 22px;
   height: 22px;
@@ -1733,15 +1624,12 @@ textarea:focus-visible {
   border-radius: 50%;
   animation: admin-spin 0.8s linear infinite;
 }
-
 .admin-gate-card .admin-loading-spinner {
   margin-bottom: 1rem;
 }
-
 .admin-gate-card > p:last-child {
   color: var(--text-secondary);
 }
-
 .admin-signout-button:focus-visible,
 .admin-refresh-button:focus-visible,
 .admin-delete-button:focus-visible,
@@ -1757,35 +1645,22 @@ textarea:focus-visible {
   }
 }
 
-/* Dashboard */
-
+/* admin dashboard styling */
 .admin-dashboard {
   position: relative;
   min-height: 100svh;
   padding: 5rem 1.5rem;
   overflow: hidden;
   isolation: isolate;
-  background:
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(124, 58, 237, 0.08),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 80%,
-      rgba(96, 165, 250, 0.06),
-      transparent 30%
-    ),
-    var(--bg-primary);
+  background: radial-gradient( circle at 15% 15%,rgba(124, 58, 237, 0.08), transparent 30%),
+  radial-gradient( circle at 85% 80%,rgba(96, 165, 250, 0.06), transparent 30%), var(--bg-primary);
 }
-
 .admin-dashboard-container {
   position: relative;
   z-index: 2;
   width: min(100%, 1080px);
   margin: 0 auto;
 }
-
 .admin-dashboard-header {
   display: flex;
   align-items: flex-end;
@@ -1794,13 +1669,11 @@ textarea:focus-visible {
   padding-bottom: 2.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
-
 .admin-dashboard-description {
   margin-top: 1.25rem;
   color: var(--text-secondary);
   line-height: 1.7;
 }
-
 .admin-signout-button {
   flex: 0 0 auto;
   padding: 0.75rem 1.1rem;
@@ -1810,13 +1683,8 @@ textarea:focus-visible {
   color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 600;
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
-
 .admin-signout-button:hover {
   transform: translateY(-2px);
   border-color: rgba(135, 206, 250, 0.3);
@@ -1825,14 +1693,12 @@ textarea:focus-visible {
 }
 
 /* Stats */
-
 .admin-stats {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
-
 .admin-stat-card {
   min-height: 150px;
   padding: 1.4rem;
@@ -1841,19 +1707,11 @@ textarea:focus-visible {
   justify-content: space-between;
   border: 1px solid rgba(135, 206, 250, 0.1);
   border-radius: 20px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.025)
-    );
+  background: linear-gradient( 145deg,rgba(255, 255, 255, 0.055),rgba(255, 255, 255, 0.025));
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  box-shadow:
-    0 20px 55px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
-
 .admin-stat-label {
   color: var(--text-muted);
   font-size: 0.68rem;
@@ -1861,14 +1719,12 @@ textarea:focus-visible {
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
-
 .admin-stat-card strong {
   color: var(--text-primary);
   font-size: clamp(1.8rem, 4vw, 2.7rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
-
 .admin-stat-card .admin-stat-latest {
   max-width: 220px;
   color: var(--text-secondary);
@@ -1876,18 +1732,15 @@ textarea:focus-visible {
   line-height: 1.4;
   letter-spacing: -0.01em;
 }
-
 .admin-stat-card .admin-stat-admin {
   color: var(--sky);
   font-size: 1.1rem;
 }
 
-/* Wishes section */
-
+/* Wishes section styling */
 .admin-wishes-section {
   margin-top: 5rem;
 }
-
 .admin-wishes-header {
   display: flex;
   align-items: flex-end;
@@ -1895,17 +1748,14 @@ textarea:focus-visible {
   gap: 2rem;
   margin-bottom: 2rem;
 }
-
 .admin-section-eyebrow {
   margin-bottom: 0.7rem;
 }
-
 .admin-wishes-header h2 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1;
   letter-spacing: -0.05em;
 }
-
 .admin-refresh-button {
   flex: 0 0 auto;
   display: inline-flex;
@@ -1918,28 +1768,21 @@ textarea:focus-visible {
   color: var(--text-secondary);
   font-size: 0.78rem;
   font-weight: 600;
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
-
 .admin-refresh-button:hover:not(:disabled) {
   border-color: rgba(135, 206, 250, 0.3);
   background: rgba(255, 255, 255, 0.07);
   color: var(--text-primary);
 }
-
 .admin-refresh-button:disabled {
   cursor: not-allowed;
   opacity: 0.55;
 }
-
 .admin-refresh-icon {
   font-size: 1rem;
   line-height: 1;
 }
-
 .admin-refreshing {
   animation: admin-refresh 0.8s linear infinite;
 }
@@ -1949,9 +1792,6 @@ textarea:focus-visible {
     transform: rotate(360deg);
   }
 }
-
-/* Error */
-
 .admin-wish-error {
   margin-bottom: 1rem;
   padding: 0.9rem 1rem;
@@ -1962,9 +1802,6 @@ textarea:focus-visible {
   font-size: 0.82rem;
   line-height: 1.5;
 }
-
-/* Wishes loading */
-
 .admin-wishes-status {
   min-height: 220px;
   display: grid;
@@ -1974,9 +1811,6 @@ textarea:focus-visible {
   color: var(--text-muted);
   text-align: center;
 }
-
-/* Empty */
-
 .admin-wishes-empty {
   min-height: 240px;
   padding: 3rem 2rem;
@@ -1988,17 +1822,14 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.025);
   text-align: center;
 }
-
 .admin-wishes-empty > span {
   margin-bottom: 1rem;
   color: var(--purple);
   font-size: 1.5rem;
 }
-
 .admin-wishes-empty h3 {
   font-size: 1.2rem;
 }
-
 .admin-wishes-empty p {
   max-width: 400px;
   margin-top: 0.6rem;
@@ -2006,14 +1837,10 @@ textarea:focus-visible {
   line-height: 1.6;
   font-size: 0.85rem;
 }
-
-/* Wish cards */
-
 .admin-wishes-list {
   display: grid;
   gap: 1rem;
 }
-
 .admin-wish-card {
   position: relative;
   padding: 1.5rem;
@@ -2024,21 +1851,10 @@ textarea:focus-visible {
   overflow: hidden;
   border: 1px solid rgba(135, 206, 250, 0.1);
   border-radius: 22px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(27, 31, 70, 0.86),
-      rgba(13, 18, 48, 0.94)
-    );
-  box-shadow:
-    0 18px 55px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+  background: linear-gradient( 145deg,rgba(27, 31, 70, 0.86),rgba(13, 18, 48, 0.94));
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2),inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 .admin-wish-card::before {
   content: "";
   position: absolute;
@@ -2098,37 +1914,26 @@ textarea:focus-visible {
   place-items: center;
   border: 1px solid rgba(135, 206, 250, 0.18);
   border-radius: 50%;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(135, 206, 250, 0.15),
-      rgba(167, 139, 250, 0.2)
-    );
+  background: linear-gradient( 135deg,rgba(135, 206, 250, 0.15),rgba(167, 139, 250, 0.2));
   color: var(--text-primary);
   font-size: 0.8rem;
   font-weight: 700;
 }
-
 .admin-wish-meta div {
   min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
-
 .admin-wish-meta strong {
   color: var(--text-primary);
   font-size: 0.85rem;
 }
-
 .admin-wish-meta span:last-child {
   color: var(--text-muted);
   font-size: 0.68rem;
   line-height: 1.4;
 }
-
-/* Delete */
-
 .admin-delete-button {
   flex: 0 0 auto;
   padding: 0.65rem 0.9rem;
@@ -2138,18 +1943,13 @@ textarea:focus-visible {
   color: #fca5a5;
   font-size: 0.75rem;
   font-weight: 600;
-  transition:
-    border-color 0.25s ease,
-    background 0.25s ease,
-    transform 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
 }
-
 .admin-delete-button:hover {
   transform: translateY(-2px);
   border-color: rgba(248, 113, 113, 0.35);
   background: rgba(248, 113, 113, 0.08);
 }
-
 .admin-delete-confirm {
   flex: 0 0 auto;
   display: flex;
@@ -2160,18 +1960,15 @@ textarea:focus-visible {
   border-radius: 14px;
   background: rgba(7, 10, 26, 0.4);
 }
-
 .admin-delete-confirm > span {
   color: var(--text-secondary);
   font-size: 0.75rem;
   white-space: nowrap;
 }
-
 .admin-delete-confirm > div {
   display: flex;
   gap: 0.4rem;
 }
-
 .admin-delete-cancel,
 .admin-delete-confirm-button {
   padding: 0.5rem 0.7rem;
@@ -2179,34 +1976,28 @@ textarea:focus-visible {
   font-size: 0.7rem;
   font-weight: 600;
 }
-
 .admin-delete-cancel {
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text-secondary);
 }
-
 .admin-delete-confirm-button {
   border: 1px solid rgba(248, 113, 113, 0.25);
   background: rgba(248, 113, 113, 0.1);
   color: #fca5a5;
 }
-
 .admin-delete-cancel:hover,
 .admin-delete-confirm-button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.07);
 }
-
 .admin-delete-confirm-button:hover:not(:disabled) {
   border-color: rgba(248, 113, 113, 0.4);
 }
-
 .admin-delete-cancel:disabled,
 .admin-delete-confirm-button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
-
 .admin-dashboard-footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
@@ -2235,8 +2026,6 @@ textarea:focus-visible {
   color: var(--purple);
 }
 
-
-
 @media (max-width: 900px) {
   .guest-wishes-grid {
     width: min(100%, 720px);
@@ -2253,9 +2042,9 @@ textarea:focus-visible {
   }
   .home-background {
     inset: -5%;
-    background-position: center 70%;
-    filter: blur(2px);
-    opacity: 0.17;
+    background-position: center 55%;
+    filter: blur(1px);
+    opacity: 0.28;
   }
   .home-wish-card {
     padding: 1.25rem;
@@ -2286,7 +2075,7 @@ textarea:focus-visible {
     filter: blur(80px);
   }
   .opening-background {
-    background-position: center 50%;
+    background-position: center 70%;
   }
   .opening-content {
     width: min(100% - 2.5rem, 760px);
@@ -2404,48 +2193,48 @@ textarea:focus-visible {
     font-size: 1.08rem;
     line-height: 1.65;
   }
+  @media (hover: none) and (pointer: coarse) {
+  .guest-wish-card:active {
+    transform: scale(1.55);
+    border-color: rgba(135, 206, 250, 0.38);
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.35),
+      0 0 35px rgba(124, 58, 237, 0.14);
+  }
+}
   .admin-dashboard {
     padding: 3.5rem 1.25rem;
   }
-
   .admin-dashboard-header {
     align-items: flex-start;
     flex-direction: column;
     gap: 1.5rem;
   }
-
   .admin-signout-button {
     align-self: flex-start;
   }
-
   .admin-stats {
     grid-template-columns: 1fr;
   }
-
   .admin-stat-card {
     min-height: 120px;
   }
-
   .admin-wishes-section {
     margin-top: 4rem;
   }
-
   .admin-wishes-header {
     align-items: flex-start;
     flex-direction: column;
     gap: 1rem;
   }
-
   .admin-refresh-button {
     align-self: flex-start;
   }
-
   .admin-wish-card {
     align-items: stretch;
     flex-direction: column;
     gap: 1.25rem;
   }
-
   .admin-delete-button,
   .admin-delete-confirm {
     align-self: flex-start;
@@ -2467,37 +2256,30 @@ textarea:focus-visible {
   .admin-gate {
     padding: 1.25rem;
   }
-
   .admin-gate-card {
     padding: 2.25rem 1.25rem;
     border-radius: 22px;
   }
-
   .admin-gate-card h1 {
     font-size: clamp(2.6rem, 15vw, 4rem);
   }
   .admin-dashboard {
     padding: 2.5rem 1rem;
   }
-
   .admin-dashboard-header h1 {
     font-size: clamp(2.8rem, 15vw, 4.2rem);
   }
-
   .admin-wish-card {
     padding: 1.25rem;
     border-radius: 18px;
   }
-
   .admin-wish-message {
     font-size: 1rem;
   }
-
   .admin-delete-confirm {
     align-items: flex-start;
     flex-direction: column;
   }
-
   .admin-dashboard-footer {
     align-items: flex-start;
     flex-direction: column;
