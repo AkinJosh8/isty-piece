@@ -62,7 +62,7 @@ function Hero() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.8, }}
                     >
-                    {birthdayData.heroTagline}
+                    {birthdayData.heroTagLine}
                 </motion.p>
 
                 <motion.div

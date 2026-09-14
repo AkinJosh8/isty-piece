@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-NETLIFY-DOMAIN.netlify.app/sitemap.xml
+Disallow: /secret
+Disallow: /admin
+
+
+Sitemap: https://istyworld.netlify.app/sitemap.xml

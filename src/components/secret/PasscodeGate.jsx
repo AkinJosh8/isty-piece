@@ -28,7 +28,7 @@ function PasscodeGate( { passcode, onUnlock } ) {
         await new Promise((resolve) => {
             setTimeout(resolve, 900)
         })
-        sessionStorage.setItem("isUnlocked", "true")
+        sessionStorage.setItem("secret-room-unlocked", "true")
         onUnlock()
     }
 

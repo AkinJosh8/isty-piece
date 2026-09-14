@@ -105,6 +105,7 @@ function WishForm() {
                             placeholder="What should she call you?" 
                             value={formData.name} 
                             autoComplete="name"
+                            maxLength={80}
                             onChange={handleChange} 
                             disabled={isSubmitting} 
                             required />
@@ -118,6 +119,7 @@ function WishForm() {
                             name="message"
                             placeholder="Write something beautiful..."
                             rows="5"
+                            maxLength={1000}
                             value={formData.message}
                             onChange={handleChange}
                             disabled={isSubmitting}

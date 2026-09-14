@@ -36,6 +36,13 @@ img {
   background: var(--purple);
   color: white;
 }
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(135, 206, 250, 0.45);
+  outline-offset: 4px;
+}
 
 .home {
   position: relative;
@@ -940,6 +947,11 @@ img {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
 }
+.memories-arrow:focus-visible,
+.memories-dot:focus-visible {
+  outline: 3px solid rgba(135, 206, 250, 0.4);
+  outline-offset: 4px;
+}
 .memories-dots {
   display: flex;
   align-items: center;
@@ -953,6 +965,7 @@ img {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   transition: width 0.3s ease, background 0.3s ease;
+  cursor: pointer;
 }
 .memories-dot-active {
   width: 24px;
@@ -1124,27 +1137,16 @@ img {
   font-size: 1.2rem;
 }
 .surprise-media-slot {
-  width: min(100%, 620px);
-  min-height: 180px;
+  width: 100%;
   margin-top: 2rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed rgba(255, 255, 255, 0.14);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.025);
+  background: transparent;
   color: var(--text-muted);
   text-align: center;
-}
-.surprise-media-slot {
-  width: 100%;
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
 }
 .surprise-media-icon {
   margin-bottom: 0.75rem;
@@ -1377,12 +1379,7 @@ img {
   flex-direction: column;
   overflow: hidden;
   isolation: isolate;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(27, 31, 70, 0.92),
-      rgba(13, 18, 48, 0.96)
-    );
+  background: linear-gradient( 145deg,rgba(27, 31, 70, 0.92),rgba(13, 18, 48, 0.96));
   border: 1px solid rgba(135, 206, 250, 0.14);
   border-radius: 22px;
   backdrop-filter: blur(18px);
@@ -1392,9 +1389,7 @@ img {
     0 0 0 1px rgba(124, 58, 237, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transform: translateY(0) scale(1);
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.4s ease,
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s ease,
     box-shadow 0.4s ease,
     background 0.4s ease;
 }
@@ -1434,7 +1429,7 @@ img {
   transition: transform 0.8s ease;
 }
 .guest-wish-card:hover {
-  transform: translateY(-8px) scale(1.015);
+  transform: translateY(-5px);
   background:
     linear-gradient(
       145deg,
@@ -1548,16 +1543,13 @@ img {
   color: var(--text-primary);
   font-size: 0.85rem;
 }
-.guest-wish-author span {
+.guest-wish-author div span {
   color: var(--text-muted);
   font-size: 0.65rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
-/* =========================================================
-   ADMIN DASHBOARD
-   ========================================================= */
-
+/* Admin styling */
 .admin-gate {
   position: relative;
   min-height: 100svh;
@@ -1731,7 +1723,6 @@ img {
   opacity: 0.55;
 }
 
-/* Loading */
 
 .admin-loading-spinner {
   width: 22px;
@@ -1749,6 +1740,15 @@ img {
 
 .admin-gate-card > p:last-child {
   color: var(--text-secondary);
+}
+
+.admin-signout-button:focus-visible,
+.admin-refresh-button:focus-visible,
+.admin-delete-button:focus-visible,
+.admin-delete-cancel:focus-visible,
+.admin-delete-confirm-button:focus-visible {
+  outline: 3px solid rgba(135, 206, 250, 0.4);
+  outline-offset: 4px;
 }
 
 @keyframes admin-spin {

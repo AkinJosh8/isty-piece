@@ -7,7 +7,7 @@ function GuestWishes() {
     const shouldReduceMotion = useReducedMotion()
     //a piece which intially contains nothing, but will be somthing when synced with wishes from supabase
     const [wishes, setWishes] = useState([])
-    const [isLoading, setIsLaoding] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState("")
 
     useEffect(() =>{
@@ -90,7 +90,7 @@ function GuestWishes() {
 
                                 <p className="guest-wish-message">{wish.message}</p>
                                 <div className="guest-wish-author">
-                                    <span>{wish.name.charAt(0).toUpperCase()}</span>
+                                    <span  >{wish.name.charAt(0).toUpperCase()}</span>
                                     <div>
                                         <strong>{wish.name}</strong>
                                         <span>Birthday wish</span>
