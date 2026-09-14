@@ -1893,6 +1893,7 @@ textarea:focus-visible {
   font-size: 1.05rem;
   line-height: 1.7;
   overflow-wrap: anywhere;
+  white-space: pre-line;
 }
 
 .admin-wish-meta {
