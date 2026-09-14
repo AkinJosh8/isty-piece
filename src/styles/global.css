@@ -1862,7 +1862,6 @@ textarea:focus-visible {
   filter: blur(60px);
   pointer-events: none;
 }
-
 .admin-wish-card:hover {
   transform: translateY(-3px);
   border-color: rgba(135, 206, 250, 0.2);
@@ -1870,13 +1869,11 @@ textarea:focus-visible {
     0 24px 65px rgba(0, 0, 0, 0.27),
     0 0 35px rgba(124, 58, 237, 0.06);
 }
-
 .admin-wish-card-content {
   position: relative;
   min-width: 0;
   flex: 1;
 }
-
 .admin-wish-quote {
   display: block;
   margin-bottom: 0.2rem;
@@ -1886,7 +1883,6 @@ textarea:focus-visible {
   line-height: 0.7;
   opacity: 0.65;
 }
-
 .admin-wish-message {
   margin: 1rem 0 1.5rem;
   color: var(--text-primary);
@@ -1895,13 +1891,11 @@ textarea:focus-visible {
   overflow-wrap: anywhere;
   white-space: pre-line;
 }
-
 .admin-wish-meta {
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
-
 .admin-wish-avatar {
   width: 40px;
   height: 40px;
