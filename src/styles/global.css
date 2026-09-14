@@ -298,19 +298,16 @@ textarea:focus-visible {
   font-weight: 800;
   box-shadow: 0 0 35px rgba(135, 206, 250, 0.18), 0 0 45px rgba(124, 58, 237, 0.18);
 }
-
 .wish-success h2 {
   margin-bottom: 0.65rem;
   font-size: 1.8rem;
   letter-spacing: -0.03em;
 }
-
 .wish-success p {
   max-width: 380px;
   color: var(--text-secondary);
   line-height: 1.7;
 }
-
 .wish-success-reset {
   margin-top: 1.5rem;
   border: 1px solid var(--border);
@@ -322,7 +319,6 @@ textarea:focus-visible {
   font-weight: 600;
   transition: border-color 0.25s ease,  background 0.25s ease;
 }
-
 .wish-success-reset:hover {
   border-color: rgba(135, 206, 250, 0.35);
   background: rgba(255, 255, 255, 0.06);
@@ -351,7 +347,6 @@ textarea:focus-visible {
 }
 
 /* secret room styling */
-
 .passcode-gate,
 .opening {
   position: relative;

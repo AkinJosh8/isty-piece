@@ -90,7 +90,7 @@ function GuestWishes() {
 
                                 <p className="guest-wish-message">{wish.message}</p>
                                 <div className="guest-wish-author">
-                                    <span  >{wish.name.charAt(0).toUpperCase()}</span>
+                                    <span className="guest-wish-avatar" >{wish.name.charAt(0).toUpperCase()}</span>
                                     <div>
                                         <strong>{wish.name}</strong>
                                         <span>Birthday wish</span>
