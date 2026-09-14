@@ -1,3 +1,6 @@
+import { motion } from "framer-motion"
+
+
 function WishSuccess ({ onReset }) {
     return (
         <motion.div className="wish-success"

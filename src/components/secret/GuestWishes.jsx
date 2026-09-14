@@ -12,7 +12,7 @@ function GuestWishes() {
 
     useEffect(() =>{
         const fetchWishes = async ( ) => {
-            setIsLaoding(true)
+            setIsLoading(true)
             setError("")
 
             const { data, error: fetchError } = await supabase
@@ -22,12 +22,12 @@ function GuestWishes() {
 
             if (fetchError) {
                 setError("We couldn't load the wishes right now")
-                setIsLaoding(false)
+                setIsLoading(false)
                 return
             }
 
             setWishes( data || [] )
-            setIsLaoding(false)
+            setIsLoading(false)
         }
         fetchWishes()
     }, [])
@@ -89,7 +89,7 @@ function GuestWishes() {
                                 </div>
 
                                 <p className="guest-wish-message">{wish.message}</p>
-                                <div className="guest-wish-author">
+                                <div className="guest-wish-avatar">
                                     <span  >{wish.name.charAt(0).toUpperCase()}</span>
                                     <div>
                                         <strong>{wish.name}</strong>
