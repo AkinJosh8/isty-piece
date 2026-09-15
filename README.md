@@ -1,6 +1,6 @@
 # Isty World 🎂
 
-> A private, interactive birthday experience created to celebrate Isty — her journey, memories, the people who care about her, and a few surprises along the way.
+> A private, interactive birthday experience created to celebrate Isty - her journey, memories, the people who care about her, and a few surprises along the way.
 
 🔗 **Live Website:** https://istyworld.netlify.app/
 
@@ -10,12 +10,12 @@
 
 Isty World is a custom interactive birthday experience built from scratch with React.
 
-Instead of creating a traditional birthday webpage, the goal was to build something that feels more like a small digital experience — combining memories, personal messages, animations, guest wishes, and a private surprise into one cohesive journey.
+Instead of creating a traditional birthday webpage, the goal was to build something that feels more like a small digital experience - combining memories, personal messages, animations, guest wishes, and a private surprise into one cohesive journey.
 
 The experience is divided into two main areas:
 
-- **Public Birthday Wishes** — visitors can leave a personal birthday message.
-- **Private Secret Room** — a passcode-protected experience containing memories, a personalized message, a surprise letter, and guest wishes.
+- **Public Birthday Wishes** - visitors can leave a personal birthday message.
+- **Private Secret Room** - a passcode-protected experience containing memories, a personalized message, a surprise letter, and guest wishes.
 
 The project was designed with a strong focus on:
 
